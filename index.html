@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#075985">
+  <title>Kiểm kê PC/Laptop</title>
+  <style>
+    :root{--navy:#07324a;--blue:#075985;--sky:#0ea5e9;--ink:#142534;--muted:#607586;--line:#d9e4eb;--bg:#eef5f8;--white:#fff;--danger:#b42318;--ok:#067647}*{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#e9f3f7,#f8fbfc 42%,#eaf5f9);color:var(--ink);font:15px/1.5 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}.hero{background:linear-gradient(120deg,var(--navy),var(--blue));color:#fff;padding:34px 20px 66px}.hero-inner,.shell{max-width:1080px;margin:auto}.eyebrow{margin:0 0 7px;text-transform:uppercase;letter-spacing:.13em;font-size:12px;font-weight:800;color:#a9e1f8}.hero h1{margin:0;font-size:clamp(28px,5vw,44px);letter-spacing:-.03em}.hero p{margin:8px 0 0;color:#d5edf6;max-width:680px}.shell{margin-top:-38px;padding:0 18px 54px}.card{background:rgba(255,255,255,.98);border:1px solid rgba(255,255,255,.8);border-radius:22px;box-shadow:0 18px 45px rgba(7,50,74,.14);overflow:hidden}.progress{height:5px;background:#dce9ef}.progress>span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--sky),#22c55e);transition:.25s}.form{padding:28px}.section{border:0;margin:0 0 28px;padding:0}.section:last-of-type{margin-bottom:18px}.section legend{width:100%;display:flex;align-items:center;gap:10px;font-size:18px;font-weight:800;margin:0 0 17px}.badge{display:grid;place-items:center;width:30px;height:30px;border-radius:10px;background:#e0f2fe;color:var(--blue);font-size:13px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.field{grid-column:span 4}.field.half{grid-column:span 6}.field.full{grid-column:1/-1}label{display:block;font-weight:700;font-size:13px;margin:0 0 7px}label small{font-weight:500;color:var(--muted)}.req{color:var(--danger)}input,textarea,select{width:100%;border:1px solid var(--line);border-radius:11px;padding:11px 12px;background:#fbfdfe;color:var(--ink);font:inherit;outline:0;transition:.18s}input:focus,textarea:focus,select:focus{border-color:var(--sky);box-shadow:0 0 0 3px rgba(14,165,233,.13);background:#fff}textarea{min-height:92px;resize:vertical}.upload{position:relative;border:1.5px dashed #9cc3d4;border-radius:14px;background:#f5fbfd;padding:20px;text-align:center;cursor:pointer}.upload:hover{background:#eef9fd}.upload input{position:absolute;inset:0;opacity:0;cursor:pointer}.upload strong{display:block;color:var(--blue)}.upload span{color:var(--muted);font-size:13px}.preview{display:none;margin-top:12px;gap:10px;align-items:center}.preview img{width:86px;height:62px;object-fit:cover;border-radius:9px;border:1px solid var(--line)}.preview.show{display:flex}.actions{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:7px;border-top:1px solid #e9f0f3}.privacy{font-size:12px;color:var(--muted);max-width:530px}.submit{border:0;border-radius:12px;padding:12px 22px;background:linear-gradient(120deg,var(--blue),#0284c7);color:#fff;font-weight:800;font-size:15px;cursor:pointer;box-shadow:0 7px 16px rgba(7,89,133,.22)}.submit:disabled{opacity:.62;cursor:wait}.message{display:none;margin:0 0 18px;padding:12px 14px;border-radius:11px;font-weight:650}.message.show{display:block}.message.ok{background:#ecfdf3;color:var(--ok);border:1px solid #abefc6}.message.err{background:#fef3f2;color:var(--danger);border:1px solid #fecdca}.config{background:#fff7ed;color:#9a3412;border:1px solid #fed7aa;padding:10px 14px;font-size:13px;text-align:center}.config[hidden]{display:none}@media(max-width:760px){.hero{padding-top:25px}.form{padding:21px 17px}.field,.field.half{grid-column:1/-1}.grid{gap:13px}.actions{align-items:stretch;flex-direction:column}.submit{width:100%}}
+  </style>
+</head>
+<body>
+  <header class="hero"><div class="hero-inner"><p class="eyebrow">IL-SUNG TECH · IT ASSET</p><h1>Kiểm kê PC/Laptop</h1><p>Ghi nhận thông tin thiết bị đang sử dụng. Mỗi lần gửi tương ứng với một thiết bị.</p></div></header>
+  <main class="shell"><div class="card"><div class="progress"><span id="progress"></span></div><div id="config" class="config" hidden>Trang chưa được cấu hình địa chỉ nhận dữ liệu. Vui lòng liên hệ bộ phận IT.</div>
+    <form id="assetForm" class="form">
+      <div id="message" class="message" role="alert"></div>
+      <fieldset class="section"><legend><span class="badge">01</span>Thông tin người sử dụng</legend><div class="grid">
+        <div class="field half"><label for="fullName">Họ và tên <span class="req">*</span></label><input id="fullName" name="fullName" autocomplete="name" required></div>
+        <div class="field half"><label for="employeeId">Mã nhân viên (ID) <span class="req">*</span></label><input id="employeeId" name="employeeId" required></div>
+        <div class="field"><label for="department">Bộ phận <span class="req">*</span></label><input id="department" name="department" required></div>
+        <div class="field"><label for="position">Chức vụ</label><input id="position" name="position"></div>
+        <div class="field"><label for="jobTitle">Chức danh</label><input id="jobTitle" name="jobTitle"></div>
+        <div class="field full"><label for="purpose">Mục đích sử dụng <span class="req">*</span></label><textarea id="purpose" name="purpose" required placeholder="Ví dụ: Văn phòng, thiết kế, lập trình, vận hành máy..."></textarea></div>
+      </div></fieldset>
+      <fieldset class="section"><legend><span class="badge">02</span>Thông tin thiết bị</legend><div class="grid">
+        <div class="field"><label for="manufacturer">Hãng sản xuất <span class="req">*</span></label><input id="manufacturer" name="manufacturer" required placeholder="Dell, HP, Lenovo..."></div>
+        <div class="field"><label for="manufactureYear">Năm sản xuất</label><input id="manufactureYear" name="manufactureYear" type="number" min="1990" max="2100" inputmode="numeric"></div>
+        <div class="field"><label for="serialNumber">Số Serial (S/N) <span class="req">*</span></label><input id="serialNumber" name="serialNumber" required></div>
+        <div class="field half"><label for="ipAddress">Địa chỉ IP</label><input id="ipAddress" name="ipAddress" inputmode="decimal" placeholder="192.168.1.10"></div>
+        <div class="field half"><label for="macAddress">Địa chỉ MAC</label><input id="macAddress" name="macAddress" placeholder="AA:BB:CC:DD:EE:FF"></div>
+      </div></fieldset>
+      <fieldset class="section"><legend><span class="badge">03</span>Cấu hình và ảnh chụp</legend><div class="grid">
+        <div class="field half"><label for="cpu">CPU <span class="req">*</span></label><input id="cpu" name="cpu" required placeholder="Intel Core i5-1135G7"></div>
+        <div class="field half"><label for="storage">Ổ cứng <span class="req">*</span></label><input id="storage" name="storage" required placeholder="SSD 512 GB"></div>
+        <div class="field half"><label for="ram">RAM <span class="req">*</span></label><input id="ram" name="ram" required placeholder="16 GB DDR4"></div>
+        <div class="field half"><label for="graphics">Card đồ họa <small>(nếu có)</small></label><input id="graphics" name="graphics"></div>
+        <div class="field full"><label>Ảnh thiết bị <small>(không bắt buộc, tối đa 5 MB)</small></label><div class="upload"><input id="photo" name="photo" type="file" accept="image/jpeg,image/png,image/webp" capture="environment"><strong>Chụp ảnh hoặc chọn ảnh thiết bị</strong><span>JPG, PNG hoặc WebP</span></div><div id="preview" class="preview"><img id="previewImg" alt="Ảnh xem trước"><span id="fileName"></span></div></div>
+        <div class="field full"><label for="notes">Ghi chú <small>(người sử dụng trước đây là ai?)</small></label><textarea id="notes" name="notes"></textarea></div>
+      </div></fieldset>
+      <div class="actions"><div class="privacy">Thông tin được gửi vào bảng kiểm kê nội bộ. Ảnh, nếu có, được lưu trong Google Drive của đơn vị.</div><button id="submit" class="submit" type="submit">Gửi thông tin thiết bị</button></div>
+    </form>
+  </div></main>
+<script>
+  const ENDPOINT = 'APPS_SCRIPT_WEB_APP_URL';
+  const form = document.getElementById('assetForm'), message = document.getElementById('message'), submit = document.getElementById('submit'), photo = document.getElementById('photo');
+  if (ENDPOINT.includes('APPS_SCRIPT')) document.getElementById('config').hidden = false;
+  const updateProgress=()=>{const required=[...form.querySelectorAll('[required]')];const done=required.filter(x=>x.value.trim()).length;document.getElementById('progress').style.width=(done/required.length*100)+'%'};
+  form.addEventListener('input',updateProgress);
+  photo.addEventListener('change',()=>{const f=photo.files[0],p=document.getElementById('preview');if(!f){p.classList.remove('show');return}if(f.size>5*1024*1024){photo.value='';show('Ảnh vượt quá 5 MB. Vui lòng chọn ảnh nhỏ hơn.','err');return}document.getElementById('previewImg').src=URL.createObjectURL(f);document.getElementById('fileName').textContent=f.name;p.classList.add('show')});
+  function show(text,type){message.textContent=text;message.className='message show '+type;message.scrollIntoView({behavior:'smooth',block:'center'})}
+  const asDataUrl=file=>new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(file)});
+  form.addEventListener('submit',async e=>{e.preventDefault();if(ENDPOINT.includes('APPS_SCRIPT')){show('Trang chưa được cấu hình kết nối Google Sheet.','err');return}submit.disabled=true;submit.textContent='Đang gửi...';message.className='message';try{const data=Object.fromEntries(new FormData(form).entries());delete data.photo;if(photo.files[0]){const url=await asDataUrl(photo.files[0]);data.photoBase64=url.split(',')[1];data.photoMimeType=photo.files[0].type;data.photoName=photo.files[0].name}data.userAgent=navigator.userAgent;await fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)});show('Đã gửi thông tin thiết bị thành công. Cảm ơn bạn!','ok');form.reset();document.getElementById('preview').classList.remove('show');updateProgress()}catch(err){show('Không thể gửi dữ liệu. Vui lòng kiểm tra mạng và thử lại.','err')}finally{submit.disabled=false;submit.textContent='Gửi thông tin thiết bị'}});
+</script>
+</body></html>
