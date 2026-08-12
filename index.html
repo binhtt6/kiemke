@@ -41,7 +41,7 @@
     </form>
   </div></main>
 <script>
-  const ENDPOINT = 'https://script.google.com/macros/s/AKfycbwuAtcFEta3Ge9RRqe_tg-cMohRCOIj28EDWF-cbyY3v4_umLo4FLRZ1XuVMwLQm6ZH/exec';
+  const ENDPOINT = 'https://script.google.com/macros/s/AKfycbwT7UTgtmTUelEDzt6g5h9hwhi-zjO1tOykPou_HZe99yJsQV1eyT5Qf8AbAQU2Zoil/exec';
   const form = document.getElementById('assetForm'), message = document.getElementById('message'), submit = document.getElementById('submit'), photo = document.getElementById('photo');
   if (ENDPOINT.includes('APPS_SCRIPT')) document.getElementById('config').hidden = false;
   const updateProgress=()=>{const required=[...form.querySelectorAll('[required]')];const done=required.filter(x=>x.value.trim()).length;document.getElementById('progress').style.width=(done/required.length*100)+'%'};
